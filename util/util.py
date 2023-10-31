@@ -8,6 +8,7 @@ import importlib
 import argparse
 from argparse import Namespace
 import torchvision
+from pathlib import Path
 
 
 def str2bool(v):
@@ -164,3 +165,12 @@ def correct_resize(t, size, mode=Image.BICUBIC):
         resized_t = torchvision.transforms.functional.to_tensor(one_image) * 2 - 1.0
         resized.append(resized_t)
     return torch.stack(resized, dim=0).to(device)
+
+
+def find_latest_checkpoint_epoch(opt):
+    save_dir = os.path.join(opt.checkpoints_dir, opt.name)
+    ckpt_epochs = sorted([int(p.name.split[0]) for p in Path(save_dir).glob('*_net_G.pth') if p.name!='latest_net_G.pth'])
+    if len(ckpt_epochs) == 0:
+        return None
+    else:
+        return ckpt_epochs[-1]

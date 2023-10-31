@@ -28,12 +28,6 @@ class UnalignedFilelistDataset(BaseDataset):
         self.filelistA = os.path.join(opt.filelist_root, opt.dataset, f'{opt.source}_{opt.train_split}.txt')  # create a path '/path/to/data/trainA'
         self.filelistB = os.path.join(opt.filelist_root, opt.dataset, f'{opt.target}_{opt.train_split2}.txt')  # create a path '/path/to/data/trainB'
 
-        # TODO : Read paths from filelists
-        # if opt.phase == "test" and not os.path.exists(self.dir_A) \
-        #    and os.path.exists(os.path.join(opt.dataroot, "valA")):
-        #     self.dir_A = os.path.join(opt.dataroot, "valA")
-        #     self.dir_B = os.path.join(opt.dataroot, "valB")
-
         self.A_paths = make_dataset_from_list(self.filelistA)[0]   
         self.B_paths = make_dataset_from_list(self.filelistB)[0]
         self.A_size = len(self.A_paths)  # get the size of dataset A
