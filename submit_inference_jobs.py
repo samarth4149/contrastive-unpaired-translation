@@ -32,7 +32,6 @@ if __name__ == '__main__':
                 scenario = f'{src[0]}2{tgt[0]}'
                 split_scenario = f'split{split_src}{split_tgt}'
                 curr_opts = []
-                curr_opts.extend(['--display_id', '0'])
                 curr_opts.extend(['--filelist_root', '/gpfs/u/home/LMTM/LMTMsmms/scratch/projects/synthetic-cdm/CDS_pretraining/data'])
                 curr_opts.extend(['--dataset', dataset])
                 curr_opts.extend(['--source', src])
