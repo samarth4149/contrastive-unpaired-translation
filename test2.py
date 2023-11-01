@@ -62,3 +62,4 @@ model.test()           # run inference
 print('Testing done. cumulative time taken: ', time.time() - start)
 visuals = model.get_current_visuals()  # get image results
 img_path = model.get_image_paths()     # get image paths
+import ipdb; ipdb.set_trace()
