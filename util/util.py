@@ -169,7 +169,7 @@ def correct_resize(t, size, mode=Image.BICUBIC):
 
 def find_latest_checkpoint_epoch(opt):
     save_dir = os.path.join(opt.checkpoints_dir, opt.name)
-    ckpt_epochs = sorted([int(p.name.split[0]) for p in Path(save_dir).glob('*_net_G.pth') if p.name!='latest_net_G.pth'])
+    ckpt_epochs = sorted([int(p.name.split('_')[0]) for p in Path(save_dir).glob('*_net_G.pth') if p.name!='latest_net_G.pth'])
     if len(ckpt_epochs) == 0:
         return None
     else:
