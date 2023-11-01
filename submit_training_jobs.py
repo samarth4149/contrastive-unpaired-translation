@@ -61,6 +61,12 @@ if __name__ == '__main__':
                 curr_opts.extend(['--save_latest_freq', '5000'])
                 curr_opts = TrainOptions(cmd_line=' '.join(curr_opts)).parse()
                 
+                epoch = util.find_latest_checkpoint_epoch(curr_opts)
+                if epoch is None:
+                    raise Exception("No checkpoint found")
+                curr_opts.continue_train = True
+                curr_opts.epoch_count = epoch + 1
+                
                 save_dir = os.path.join(curr_opts.checkpoints_dir, curr_opts.name)
                 slurm_dir = os.path.join(save_dir, 'slurm')
                 os.makedirs(slurm_dir, exist_ok=True)
