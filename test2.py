@@ -10,7 +10,7 @@ import time
 
 opt = TestOptions(
     cmd_line=' '.join([
-        '--name', 'cut_domainnet_c2p',
+        '--name', 'cut_domainnet_c2p_split12',
         # '--filelist_root', '/projectnb/ivc-ml/samarth/projects/synthetic/synthetic-cdm/CDS_pretraining/data/',
         '--filelist_root', '/gpfs/u/home/LMTM/LMTMsmms/scratch/projects/synthetic-cdm/CDS_pretraining/data/',
         '--dataset_mode', 'unalignedfilelist',
