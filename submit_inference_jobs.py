@@ -42,7 +42,7 @@ if __name__ == '__main__':
                 
                 name = f'cut_{dataset}_{scenario}_{split_scenario}'
                 expt_name = f'inference_{name}'
-                root_dir = f'/gpfs/u/home/LMTM/LMTMsmms/scratch/data/synthetic_cdm/synthetic_data/cut/train/{dataset}/{scenario}'
+                root_dir = f'/gpfs/u/home/LMTM/LMTMsmms/scratch/data/synthetic_cdm/synthetic-data/cut/train/{dataset}/{scenario}'
                 curr_opts.extend(['--name', name]) # to load latest checkpoint from here
                 curr_opts.extend(['--root_dir', root_dir])
                 
@@ -89,6 +89,5 @@ if __name__ == '__main__':
                     raise Exception(f'Failed to submit job {curr_opts.name}')
                 
                 print("Submitted job_id:", job.job_id)
-                sys.exit(0)
                 
                 
