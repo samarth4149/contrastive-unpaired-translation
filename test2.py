@@ -11,7 +11,8 @@ import time
 opt = TestOptions(
     cmd_line=' '.join([
         '--name', 'cut_domainnet_c2p',
-        '--filelist_root', '/projectnb/ivc-ml/samarth/projects/synthetic/synthetic-cdm/CDS_pretraining/data/',
+        # '--filelist_root', '/projectnb/ivc-ml/samarth/projects/synthetic/synthetic-cdm/CDS_pretraining/data/',
+        '--filelist_root', '/gpfs/u/home/LMTM/LMTMsmms/scratch/projects/synthetic-cdm/CDS_pretraining/data/',
         '--dataset_mode', 'unalignedfilelist',
         '--train_split', 'train_cls_disjoint1',
         '--train_split2', 'train_cls_disjoint2',
