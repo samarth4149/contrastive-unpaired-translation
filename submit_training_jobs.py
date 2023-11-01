@@ -62,6 +62,8 @@ if __name__ == '__main__':
                 curr_opts = TrainOptions(cmd_line=' '.join(curr_opts)).parse()
                 
                 epoch = util.find_latest_checkpoint_epoch(curr_opts)
+                print('Latest epoch :', epoch)
+                continue
                 if epoch is None:
                     raise Exception("No checkpoint found")
                 curr_opts.continue_train = True
