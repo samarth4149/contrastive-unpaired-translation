@@ -6,6 +6,7 @@ import itertools
 import util.util as util
 from typing import Any
 from options.test_options import TestOptions
+import sys
 
 
 class Trainer:
@@ -89,5 +90,6 @@ if __name__ == '__main__':
                     raise Exception(f'Failed to submit job {curr_opts.name}')
                 
                 print("Submitted job_id:", job.job_id)
+                sys.exit(0)
                 
                 
