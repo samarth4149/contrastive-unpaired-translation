@@ -30,12 +30,15 @@ class Trainer:
 
 if __name__ == '__main__':
     datasets = OrderedDict({
-        'cub': {
-            'domains' : ['Real', 'Painting']
+        'office_home' : {
+            'domains' : ['Art', 'Clipart', 'Product', 'Real'],
         },
-        'domainnet': {
-            'domains' : ['clipart', 'painting', 'sketch'],
-        },
+        # 'cub': {
+        #     'domains' : ['Real', 'Painting'],
+        # },
+        # 'domainnet': {
+        #     'domains' : ['clipart', 'painting', 'sketch'],
+        # },
     })
 
     for dataset in datasets:
@@ -61,13 +64,13 @@ if __name__ == '__main__':
                 curr_opts.extend(['--save_latest_freq', '5000'])
                 curr_opts = TrainOptions(cmd_line=' '.join(curr_opts)).parse()
                 
-                epoch = util.find_latest_checkpoint_epoch(curr_opts)
-                print('Latest epoch :', epoch)
-                continue
-                if epoch is None:
-                    raise Exception("No checkpoint found")
-                curr_opts.continue_train = True
-                curr_opts.epoch_count = epoch + 1
+                # epoch = util.find_latest_checkpoint_epoch(curr_opts)
+                # print('Latest epoch :', epoch)
+                # continue
+                # if epoch is None:
+                #     raise Exception("No checkpoint found")
+                # curr_opts.continue_train = True
+                # curr_opts.epoch_count = epoch + 1
                 
                 save_dir = os.path.join(curr_opts.checkpoints_dir, curr_opts.name)
                 slurm_dir = os.path.join(save_dir, 'slurm')
