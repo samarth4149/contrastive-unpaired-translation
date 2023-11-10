@@ -65,12 +65,14 @@ if __name__ == '__main__':
                 curr_opts = TrainOptions(cmd_line=' '.join(curr_opts)).parse()
                 
                 epoch = util.find_latest_checkpoint_epoch(curr_opts)
-                print('Latest epoch :', epoch)
-                continue
-                # if epoch is None:
-                #     raise Exception("No checkpoint found")
-                # curr_opts.continue_train = True
-                # curr_opts.epoch_count = epoch + 1
+                # print('Latest epoch :', epoch)
+                # continue
+                if epoch is None:
+                    raise Exception("No checkpoint found")
+                if epoch == 400:
+                    continue
+                curr_opts.continue_train = True
+                curr_opts.epoch_count = epoch + 1
                 
                 save_dir = os.path.join(curr_opts.checkpoints_dir, curr_opts.name)
                 slurm_dir = os.path.join(save_dir, 'slurm')
