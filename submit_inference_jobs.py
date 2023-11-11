@@ -18,12 +18,15 @@ class Trainer:
         
 if __name__ == '__main__':
     datasets = OrderedDict({
-        'cub': {
-            'domains' : ['Real', 'Painting']
+        'office_home': {
+            'domains' : ['Art', 'Clipart', 'Product', 'Real']
         },
-        'domainnet': {
-            'domains' : ['clipart', 'painting', 'sketch'],
-        },
+        # 'cub': {
+        #     'domains' : ['Real', 'Painting']
+        # },
+        # 'domainnet': {
+        #     'domains' : ['clipart', 'painting', 'sketch'],
+        # },
     })
     
     for dataset in datasets:
@@ -42,7 +45,7 @@ if __name__ == '__main__':
                 
                 name = f'cut_{dataset}_{scenario}_{split_scenario}'
                 expt_name = f'inference_{name}'
-                root_dir = f'/gpfs/u/home/LMTM/LMTMsmms/scratch/data/synthetic_cdm/synthetic-data/cut/train/{dataset}/{scenario}'
+                root_dir = f'/gpfs/u/home/LMTM/LMTMsmms/scratch/data/synthetic-cdm/synthetic_data/cut/train/{dataset}/{scenario}'
                 curr_opts.extend(['--name', name]) # to load latest checkpoint from here
                 curr_opts.extend(['--root_dir', root_dir])
                 
